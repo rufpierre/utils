@@ -1,0 +1,15 @@
+#!/usr/bin/python
+
+import sys
+from subprocess import call
+
+if len(sys.argv)==1 or sys.argv[1]=='-h':
+	print "usage : \n> draw source destination\nsource can be dot or uml files"
+	exit()
+if sys.argv[1].split('.')[1]=="dot":
+	target = sys.argv[1].split('.')[0]+'.png'
+	call(["dot","-Tpng",sys.argv[1],"-o", target])
+if sys.argv[1].split('.')[1]=="uml":
+	target = sys.argv[1].split('.')[0]+'.png'
+	call(["plantuml.jar", sys.argv[1]])
+call(["mv", target, sys.argv[2]])
