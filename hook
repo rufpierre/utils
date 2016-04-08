@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# echo $1
+grep "$1" --color=auto * -nsA 200 | pygmentize -l python | less -R

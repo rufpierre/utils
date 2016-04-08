@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# = 0 ]
+then
+    echo distantclose DIR_PATH_TO_UNMOUNT
+else
+    fusermount -u $1
+fi
+
+

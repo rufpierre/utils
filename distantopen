@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# = 0 ]
+then
+    echo distantopen USER IP DISTANT_PATH LOCAL_PATH
+else
+    # sshfs -o "IdentityFile=/home/pierre/.ssh/google_compute_engine,CheckHostIP=no,StrictHostKeyChecking=no,UserKnownHostsFile=/dev/null" pierre@146.148.116.98:. ~/sshfs_serveur
+    sshfs -o "IdentityFile=/home/pierre/.ssh/google_compute_engine,CheckHostIP=no,StrictHostKeyChecking=no,UserKnownHostsFile=/dev/null" $1@$2:$3 $4
+fi
